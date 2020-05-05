@@ -1,2 +1,2 @@
-from mymind.wsgi import MyMindApplication
-app = MyMindApplication
+from mymind.wsgi import application
+app = application
