@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mymind.moods',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,6 +54,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'corsheaders',
+    ]
+    MIDDLEWARE += [
+        'corsheaders.middleware.CorsMiddleware',
+    ]
+    CORS_ORIGIN_WHITELIST = [
+        'http://localhost:9003',
+        'https://localhost:9003',
+        'http://127.0.0.1:9003',
+        'https://127.0.0.1:9003',
+    ]
+    CORS_ALLOW_CREDENTIALS = True
 
 GRAPHENE = {
     'SCHEMA': 'mymind.schema.schema',
