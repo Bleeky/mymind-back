@@ -15,7 +15,7 @@ class CreateUser(graphene.Mutation):
     class Arguments:
         username = graphene.String(required=True)
         password = graphene.String(required=True)
-        email = graphene.String(required=True)
+        email = graphene.String(required=False)
 
     def mutate(self, info, username, password, email):
         user = get_user_model()(
