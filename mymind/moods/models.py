@@ -5,7 +5,8 @@ from django.db import models
 
 
 class Mood(models.Model):
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=False)
+    mood = models.IntegerField(blank=False, default=0)
 
     def __str__(self):
         return self.description
